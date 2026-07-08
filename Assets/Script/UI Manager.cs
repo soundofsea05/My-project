@@ -15,6 +15,5 @@ public class UIManager : MonoBehaviour
     {
         lifeText.text = "Life : " + life;
         scoreText.text = "Score : " + score;
-        
     }
 }
