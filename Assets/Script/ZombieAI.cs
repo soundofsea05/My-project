@@ -29,7 +29,7 @@ public class ZombieAI : MonoBehaviour
 
             Vector3 target = player.position;
             target.y = transform.position.y;
-            transform.LookAt(player);
+            transform.LookAt(target);
 
             transform.position = Vector3.MoveTowards(
                 transform.position,
