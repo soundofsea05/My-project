@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,18 @@ public class GameManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+    }
+
+    void Update()
+    {
+        if(life <= 0 && Input.GetKeyDown(KeyCode.R))
+        {
+            Time.timeScale = 1f;
+
+            SceneManager.LoadScene(
+                SceneManager.GetActiveScene().buildIndex
+            );
+        }
     }
 
     public void AddScore(int value)
@@ -33,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     void GameOver()
     {
+        Debug.Log("GameOver");
         uiManager.ShowGameOver();
 
         Time.timeScale = 0f;

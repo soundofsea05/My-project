@@ -8,9 +8,12 @@ public class ZombieSpawner : MonoBehaviour
     public Transform player;
 
     public float spawnRadius = 20f;
-
     public float startInterval = 5f;
     public float minimumInterval = 1f;
+    public float minX = -35f;
+    public float maxX = 35f;
+    public float minZ = -30f;
+    public float maxZ = 30f;
 
     void Start()
     {
@@ -31,15 +34,17 @@ public class ZombieSpawner : MonoBehaviour
 
     void SpawnZombie()
     {
-        float angle = Random.Range(0f, 360f);
+        Vector3 spawnPos;
 
-        Vector3 spawnPos =
-            player.position +
-            new Vector3(
-                Mathf.Cos(angle * Mathf.Deg2Rad) * spawnRadius,
-                0,
-                Mathf.Sin(angle * Mathf.Deg2Rad) * spawnRadius
+        do
+        {
+            spawnPos = new Vector3(
+                Random.Range(minX, maxX),
+                0f,
+                Random.Range(minZ, maxZ)
             );
+        }
+        while (Vector3.Distance(spawnPos, player.position) < 8f);
 
         Instantiate(zombiePrefab, spawnPos, Quaternion.identity);
     }
