@@ -513,10 +513,6 @@ public class GunScript : MonoBehaviour {
 	 */
 	[Tooltip("HUD bullets to display bullet count on screen. Will be find under name 'HUD_bullets' in scene.")]
 	//public TextMesh HUD_bullets;
-	void OnGUI()
-	{
-		DrawCrosshair();
-	}
 
 	[Header("Crosshair properties")]
 	public Texture horizontal_crosshair, vertical_crosshair;
@@ -525,41 +521,6 @@ public class GunScript : MonoBehaviour {
 	[HideInInspector]
 	public Vector2 expandValues_crosshair;
 	private float fadeout_value = 1;
-	/*
-	 * Drawing the crossHair.
-	 */
-	void DrawCrosshair(){
-		GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, fadeout_value);
-		if(Input.GetAxis("Fire2") == 0){//if not aiming draw
-			GUI.DrawTexture(new Rect(vec2(left_pos_crosshair).x + position_x(-expandValues_crosshair.x) + Screen.width/2,Screen.height/2 + vec2(left_pos_crosshair).y, vec2(size_crosshair_horizontal).x, vec2(size_crosshair_horizontal).y), vertical_crosshair);//left
-			GUI.DrawTexture(new Rect(vec2(right_pos_crosshair).x + position_x(expandValues_crosshair.x) + Screen.width/2,Screen.height/2 + vec2(right_pos_crosshair).y, vec2(size_crosshair_horizontal).x, vec2(size_crosshair_horizontal).y), vertical_crosshair);//right
-
-			GUI.DrawTexture(new Rect(vec2(top_pos_crosshair).x + Screen.width/2,Screen.height/2 + vec2(top_pos_crosshair).y + position_y(-expandValues_crosshair.y), vec2(size_crosshair_vertical).x, vec2(size_crosshair_vertical).y ), horizontal_crosshair);//top
-			GUI.DrawTexture(new Rect(vec2(bottom_pos_crosshair).x + Screen.width/2,Screen.height/2 +vec2(bottom_pos_crosshair).y + position_y(expandValues_crosshair.y), vec2(size_crosshair_vertical).x, vec2(size_crosshair_vertical).y), horizontal_crosshair);//bottom
-		}
-
-	}
-
-	//#####		RETURN THE SIZE AND POSITION for GUI images ##################
-	private float position_x(float var){
-		return Screen.width * var / 100;
-	}
-	private float position_y(float var)
-	{
-		return Screen.height * var / 100;
-	}
-	private float size_x(float var)
-	{
-		return Screen.width * var / 100;
-	}
-	private float size_y(float var)
-	{
-		return Screen.height * var / 100;
-	}
-	private Vector2 vec2(Vector2 _vec2){
-		return new Vector2(Screen.width * _vec2.x / 100, Screen.height * _vec2.y / 100);
-	}
-	//#
 
 	public Animator handsAnimator;
 	/*

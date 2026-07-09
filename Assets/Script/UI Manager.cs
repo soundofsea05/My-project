@@ -9,15 +9,22 @@ public class UIManager : MonoBehaviour
 
     public GameObject gameOverPanel;
     public TMP_Text finalScoreText;
-    public GunScript gun;
+
+    public GunInventory gunInventory;
 
     void Update()
     {
         lifeText.text = "Life : " + GameManager.Instance.life;
         scoreText.text = "Score : " + GameManager.Instance.score;
-        if(gun != null)
+
+        if (gunInventory != null && gunInventory.currentGun != null)
         {
-            ammoText.text = gun.bulletsInTheGun.ToString();
+            GunScript currentGun = gunInventory.currentGun.GetComponent<GunScript>();
+
+            if (currentGun != null)
+            {
+                ammoText.text = currentGun.bulletsInTheGun.ToString();
+            }
         }
     }
 
