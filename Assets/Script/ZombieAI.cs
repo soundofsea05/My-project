@@ -12,6 +12,7 @@ public class ZombieAI : MonoBehaviour
     private Animator animator;
     private bool attacking = false;
     private bool dead = false;
+    private bool damageDone = false;
 
     void Start()
     {
@@ -29,12 +30,14 @@ public class ZombieAI : MonoBehaviour
         if (distance > attackDistance)
         {
             attacking = false;
+            damageDone = false;
 
             animator.SetBool("Walking", true);
 
             // Y軸だけ回転
             Vector3 target = player.position;
             target.y = transform.position.y;
+
             transform.LookAt(target);
 
             // プレイヤーへ移動
@@ -55,7 +58,7 @@ public class ZombieAI : MonoBehaviour
             }
         }
     }
-
+    
     public void TakeDamage(int damage)
     {
         Debug.Log("Zombie Hit!");
@@ -68,6 +71,17 @@ public class ZombieAI : MonoBehaviour
             Die();
         }
     }
+
+        public void DamagePlayer()
+        {
+            if (dead) return;
+
+            if (!damageDone)
+            {
+                GameManager.Instance.TakeDamage(1);
+                damageDone = true;
+            }
+        }
 
     void Die()
     {
