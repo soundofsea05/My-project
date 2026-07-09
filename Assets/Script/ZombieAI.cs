@@ -86,7 +86,7 @@ public class ZombieAI : MonoBehaviour
         }
 
         enabled = false;
-
+        GameManager.Instance.AddScore(1);
         Destroy(gameObject, 3f);
     }
 }
