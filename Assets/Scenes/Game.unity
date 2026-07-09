@@ -11096,6 +11096,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 442806, guid: d5f27232461d8e5408d83bc39e5107ec, type: 3}
   m_PrefabInstance: {fileID: 1629921114}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1630074445 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3447058116445509986, guid: 48a4fbe55b257304aa3e646d8cb0d128, type: 3}
+  m_PrefabInstance: {fileID: 2130090079}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1630074447
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630074445}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.14
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1630788493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4789225880534684, guid: 32bf4850ef16b3c41ace0630c2c40864, type: 3}
@@ -14104,11 +14130,19 @@ PrefabInstance:
       objectReference: {fileID: 1469965454}
     - target: {fileID: 1435258147662164176, guid: 48a4fbe55b257304aa3e646d8cb0d128, type: 3}
       propertyPath: attackDistance
-      value: 0.2
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447058116445509986, guid: 48a4fbe55b257304aa3e646d8cb0d128, type: 3}
+      propertyPath: m_TagString
+      value: Head
       objectReference: {fileID: 0}
     - target: {fileID: 6010232581463245464, guid: 48a4fbe55b257304aa3e646d8cb0d128, type: 3}
       propertyPath: m_Name
       value: Zombie3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010232581463245464, guid: 48a4fbe55b257304aa3e646d8cb0d128, type: 3}
+      propertyPath: m_TagString
+      value: Dummie
       objectReference: {fileID: 0}
     - target: {fileID: 8434738414978214433, guid: 48a4fbe55b257304aa3e646d8cb0d128, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14161,7 +14195,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3447058116445509986, guid: 48a4fbe55b257304aa3e646d8cb0d128, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1630074447}
   m_SourcePrefab: {fileID: 100100000, guid: 48a4fbe55b257304aa3e646d8cb0d128, type: 3}
 --- !u!4 &2131840383 stripped
 Transform:

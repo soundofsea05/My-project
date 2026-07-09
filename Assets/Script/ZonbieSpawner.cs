@@ -11,6 +11,7 @@ public class ZombieSpawner : MonoBehaviour
 
     void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
         InvokeRepeating(nameof(SpawnZombie), 2f, spawnInterval);
     }
 
